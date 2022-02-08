@@ -5,17 +5,18 @@
 <div style='margin-left:20px;margin-top:20px'>
     <h4>Books</h4>
     <dl>
-
-        <% author_books.forEach(function(book){%>
-            <%if (book){%>
+        <%if (locals.author_books){%>
+            <% author_books.forEach(function(book){%>
+            
                 <dt>
                     <a href="<%=book.url%>"><%=book.title%></a>
                 </dt>
                 <dd><%=book.summary%></dd>
-            <%} else{%>
+            <%})%>
+        <%} else{%>
                 <p>This author has  no books</p>
-            <%}%>
-        <%})%>
+            <%}%>    
+        
         
     </dl>
 </div>
