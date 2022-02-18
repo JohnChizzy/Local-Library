@@ -4,7 +4,7 @@
 <form method="POST" action="">
     <div class="form-group">
         <label for="title">Title</label>
-        <input id="title" class="form-control" type="text" placeholder="Name of book" name="title" required="true" value= "<%(undefined === locals.book ? '' : book.title)%>">
+        <input id="title" class="form-control" type="text" placeholder="Name of book"0 name="title" required="true" value= "<%(undefined === locals.book ? '' : book.title)%>">
     </div>
 
     <div class="form-group">
@@ -18,7 +18,7 @@
 
             <% authors.forEach(function(author){%>
                 <%if(locals.book){%>
-                    <option value="<%=author._id%>" selected="<%(author._id.toString()===book.author._id.toString() ? 'selected' : false) %>"><%=author.name%></option>
+                    <option value="<%=author._id%>" selected="<%(author._id.toString()===book.author._id.toString() || author._id.toString()==book.author ? 'selected' : false) %>"><%=author.name%></option>
                 <%} else{%>
                     <option value="<%=author._id%>"><%=author.name%></option>
                 <%}%>

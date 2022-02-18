@@ -5,7 +5,7 @@
 <div style='margin-left:20px;margin-top:20px'>
     <h4>Books</h4>
     <dl>
-        <%if (locals.author_books){%>
+        <%if (author_books){%>
             <% author_books.forEach(function(book){%>
             
                 <dt>
@@ -20,3 +20,7 @@
         
     </dl>
 </div>
+
+<hr>
+<p><a href="<%=author.url%>/update">Update author</a></p>
+<p><a href="<%=author.url%>/delete">Delete author</a></p>
