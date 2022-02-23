@@ -26,14 +26,21 @@ app.use(cookieParser());
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
-mongoose.connect("mongodb://localhost:27017/libraryDB", {useUnifiedTopology:true, useNewUrlParser: true });
-
+var mongoDB = "mongodb+srv://Arsenal:Test123@cluster0.18gd6.mongodb.net/Local_library?retryWrites=true&w=majority"
+mongoose.connect(mongoDB, {useUnifiedTopology:true, useNewUrlParser: true });
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/catalog', catalogRouter);
 
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+
 app.listen(3000, function() {
-  console.log("Server started on port 3000");
+  console.log("Server started on port Successfully");
 });
